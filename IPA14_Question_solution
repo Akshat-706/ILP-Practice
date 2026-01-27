@@ -1,0 +1,67 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner sc = new Scanner(System.in);
+		Movie arr[] = new Movie[4]; //remember new and this length is no. of input arrays we taking not no. of inputs in one array
+		for(int i = 0;i<arr.length;i++){
+		    String a = sc.nextLine();
+		    String b = sc.nextLine();
+		    String c = sc.nextLine();
+		    int d = sc.nextInt();sc.nextLine();
+		   arr[i] = new Movie(a,b,c,d);
+		}
+		
+		String searchGenre = sc.nextLine();
+		
+		Movie ans = getMovieByGenre(arr,searchGenre); 
+		
+		if(ans.getBudget()> 80000000 ){
+		    System.out.println("High budget movie");
+		} else System.out.println("Low Budget Movie");
+		
+
+	}
+	
+	public static Movie getMovieByGenre(Movie arr[], String searchGenre){
+	    for(int i = 0;i<arr.length;i++){
+	        if(arr[i].getGenre().equalsIgnoreCase(searchGenre)){
+	            return arr[i];
+	        }
+	    }
+	    return null;
+	}
+}
+
+class Movie{
+    String MovieName;
+    String company;
+    String genre;
+    int budget;
+    
+    public Movie(String MovieName, String company, String genre, int budget){
+        this.MovieName = MovieName;
+        this.company = company;
+        this.genre = genre;
+        this.budget= budget;
+    }
+    
+    public String getMovieName(){
+        return MovieName;
+    }
+        public String getCompany(){
+        return company;
+    }
+        public String getGenre(){
+        return genre;
+    }    public int getBudget(){
+        return budget;
+    }
+}
+
+
